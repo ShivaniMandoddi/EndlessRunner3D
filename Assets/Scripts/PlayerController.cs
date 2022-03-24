@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded==true)
+        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded==true) // Making player to jump
         {
             rb.AddForce(Vector3.up * playerJumpForce);
             IsGrounded = false;
@@ -28,16 +28,16 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(playerSpeed, rb.velocity.y, rb.velocity.z);
+        rb.velocity = new Vector3(playerSpeed, rb.velocity.y, rb.velocity.z);// Making player to move in right direction
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) 
     {
         if (collision.gameObject.tag == "Platform")
             IsGrounded = true;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<ObstacleController>()!=null)
+        if(other.gameObject.GetComponent<ObstacleController>()!=null)   
         {
             
             Destroy(this.gameObject);

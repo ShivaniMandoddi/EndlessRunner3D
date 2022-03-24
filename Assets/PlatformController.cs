@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleController : MonoBehaviour
+public class PlatformController : MonoBehaviour
 {
     // Start is called before the first frame update
-    //Script is taken as a reference for obstacle
+    public float platformSize;
     void Start()
     {
-        
+        platformSize = transform.localScale.x ;
+        Debug.Log(platformSize);
     }
 
     // Update is called once per frame
@@ -16,5 +17,4 @@ public class ObstacleController : MonoBehaviour
     {
         
     }
-    
 }
